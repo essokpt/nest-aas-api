@@ -1,0 +1,11 @@
+Nest guide.
+#CLI Create CRUD -> nest g resource $name
+
+{ 
+"name" : "Task04",
+"description" : "Test",
+"time" : "*/3 * * * *",
+"fileName" : "nlp-5.wav", 
+"enable" : true,
+"repeat" : false
+}
