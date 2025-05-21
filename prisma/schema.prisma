@@ -34,7 +34,7 @@ model Task {
   fileName  String
   enable  Boolean
   repeat Boolean
-  
+  chanel String 
 }
 
 model Files {

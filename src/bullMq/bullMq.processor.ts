@@ -28,7 +28,8 @@ export class BullMQProcessor extends WorkerHost {
 
   async start(job: Job<any>): Promise<any> {
     console.log(`START ${job.data.fileName}-${job.id}`);
-    const filePath = path.join(process.cwd(),`media/${job.data.fileName}`);
+    const filePath = path.join(__dirname, '../../../Files_upload/Messages',job.data.fileName);
+    console.log(`file path`,filePath);
     try {
       if(filePath){
         this.mqttService.mqtt.publish(

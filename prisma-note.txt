@@ -2,6 +2,6 @@
 
 - create your initial Prisma setup  #npx prisma init
 - create model in schema.prisma
-- generate your SQL migration files #npx prisma migrate dev --name $migration name
+- generate your SQL migration files #npx prisma migrate dev --name $migration-name
 - every change to your Prisma models to update your generated Prisma Client  #npx prisma generate
 - view the database on web #npm prisma studio

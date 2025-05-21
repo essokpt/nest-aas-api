@@ -14,8 +14,13 @@ export class TasksController {
   ) {}
 
   @Post()
-  create(@Body() data: CreateTaskDto): Promise<Task> {
+  create(@Body() data: CreateTaskDto) {
     return this.tasksService.create(data);
+  }
+
+  @Post('/cronjob')
+  createJob(@Body() data: CreateTaskDto) {
+    return this.tasksService.createCronJob(data);
   }
 
   // @Get('/mqtt')
@@ -45,7 +50,7 @@ export class TasksController {
     return tasks
   }
 
-  @Get('cronjobs') 
+  @Get('cronjob') 
   findCronJob(@Res() res:Response) {
     const tasks = this.tasksService.findCronJob()
     return res.status(HttpStatus.OK).json(tasks)
@@ -57,14 +62,24 @@ export class TasksController {
   }
 
   
-  @Patch('/cronjob/:name')
-  updateCronJob(@Param('name') name: string) {
-    return this.tasksService.updateCronJob(name);
+  @Patch('/')
+  updateTask(@Body() data: CreateTaskDto) {
+    return this.tasksService.updateTask(data);
+  }
+
+  @Patch('/cronjob')
+  updateCronjob(@Body() data: UpdateTaskDto) {
+    return this.tasksService.updateCronjob(data);
   }
 
   @Delete(':name')
-  remove(@Param('name') name: string) {    
+  removeTask(@Param('name') name: string) {    
     return this.tasksService.remove(name);
+  }
+
+  @Delete('/cronjob/:name')
+  removeCronJob(@Param('name') name: string) {    
+    return this.tasksService.removeCronJob(name);
   }
 
   @Delete('/queue/:id')

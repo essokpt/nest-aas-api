@@ -16,6 +16,9 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document, {
     jsonDocumentUrl: 'swagger/json',
   });
+
+ // app.useStaticAssets(join(__dirname, '../../', 'web_files'));
+
  
   app.enableCors();
   await app.listen(3005);

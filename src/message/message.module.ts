@@ -13,9 +13,9 @@ import { PrismaModule } from 'src/prismaModule/prisma.module';
   providers: [MessageService],
   imports : [ PrismaModule, MulterModule.register({
     storage: diskStorage({
-      destination: './messages',
+      destination: 'D:/MyProject/Files_upload/Messages',
       filename: (req, file, cb) => {
-        const filename = `${Date.now()}-${file.originalname}`;
+        const filename = `${file.originalname}`;
         cb(null, filename);
       },
     }),
